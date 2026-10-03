@@ -275,18 +275,20 @@ ref=r;if(!sn.exists)save();render();
 
 <style>
   .site-signature {
-    position: fixed;
-    bottom: 12px;
-    right: 16px;
-    z-index: 9999;
+    position: fixed !important;
+    bottom: 12px !important;
+    right: 16px !important;
+    z-index: 99999 !important;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-size: 11px;
-    color: rgba(255, 255, 255, 0.65);
-    background: rgba(0, 0, 0, 0.45);
-    padding: 5px 12px;
+    color: #e0e0e0 !important;
+    background: rgba(30, 30, 35, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 6px 14px;
     border-radius: 20px;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     pointer-events: none;
     user-select: none;
   }
