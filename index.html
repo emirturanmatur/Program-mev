@@ -105,26 +105,7 @@ body.po{background:#fff}body.po main{max-width:none;padding:0}body.po .pw{overfl
 .ri input{font:inherit;font-size:.85rem;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:5px 6px;min-width:0}
 .ri .rn{width:100%;box-sizing:border-box;margin-bottom:4px}.ri .rt{font-size:.82rem;color:var(--mut)}.ri .rt input{width:54px}
 .a.sm{padding:4px 8px;font-size:.78rem;margin:2px 4px 2px 0}
-  div.site-signature {
-    position: fixed !important;
-    bottom: 12px !important;
-    right: 16px !important;
-    z-index: 999999 !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-    font-size: 11px !important;
-    color: #ffffff !important;
-    background: rgba(20, 20, 25, 0.9) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    padding: 6px 14px !important;
-    border-radius: 20px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
-    pointer-events: none !important;
-    user-select: none !important;
-  }
-  @media print{div.site-signature{display:none !important}}
+@media print{body div.site-signature{display:none !important}}
 .bt{border-top:1px solid var(--line);padding:8px 0}.bt .bnm{display:block;font-weight:500;margin-bottom:4px}
 .bt .bc{display:flex;align-items:center;gap:6px;font-size:.9rem}.bt .bc b{min-width:26px;text-align:center}
 .bt .bc input{width:60px;font:inherit;font-size:.85rem;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:5px}.bt .bc .a{margin:0;padding:6px 12px}
@@ -141,6 +122,15 @@ body.po{background:#fff}body.po main{max-width:none;padding:0}body.po .pw{overfl
 .dy .rb{background:#f59e0b;color:#1a1200;border-radius:6px;padding:0 3px;font-size:.58rem}
 .tl.rt2 .rcp{border:1px solid #d97706;background:#fff3d6;color:#7a4b00}
 @media print{body.po .rp{display:none!important}}
+nav{overflow-x:auto}.t{flex:1 0 auto;padding:9px 10px;white-space:nowrap}
+.xr{display:grid;grid-template-columns:1fr 64px 64px 56px;gap:6px;align-items:center;padding:3px 0}.xr.xh{color:var(--mut);font-size:.78rem}
+.xr input{width:100%;box-sizing:border-box;font:inherit;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:6px 4px;text-align:center}
+.xr b{text-align:center}.xr b.bad{color:#dc2626}.xr small{color:var(--mut)}
+.ad input[data-x],.ad #xc,.bdt input[type=number]{font:inherit;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);min-width:0}.ad input[data-x=n]{flex:1}.bdt input[type=number]{width:70px;padding:4px 6px}
+.cw{position:relative;height:250px;margin:8px 0}
+.chip{display:inline-flex;align-items:center;gap:4px;background:var(--s0);border-radius:999px;padding:2px 4px 2px 8px;margin:3px 4px 3px 0;font-size:.82rem}.chip .a{margin:0}
+.xu,.xw{margin-top:12px;padding-top:8px;border-top:1px solid var(--line)}.ex{border-top:1px solid var(--line);padding:8px 0}
+.bd.wkb{background:#fdba74;color:#7c2d12}
 </style>
 </head>
 <body>
@@ -148,14 +138,11 @@ body.po{background:#fff}body.po main{max-width:none;padding:0}body.po .pw{overfl
 <h1>Konu Envanteri ve Ekim Planı</h1>
 <p class="m">Bir konunun rengine dokunarak durumunu değiştir. <b>Bitti</b> = "Soru çözüldü" ve üstü: anlatım + yaklaşık 60+ soru + %70 doğruluk + yanlış defteri. İlerleme otomatik kaydedilir (hesabına bağlı oturumda cihazlar arası, değilse yalnızca bu tarayıcıda).</p>
 <div id="lg"></div>
-<nav><button class="t on" data-t="e">Envanter</button><button class="t" data-t="p">Ekim Planı</button><button class="t" data-t="c">Takvim</button><button class="t" data-t="o">Çıktı</button></nav>
+<nav><button class="t on" data-t="e">Envanter</button><button class="t" data-t="p">Ekim Planı</button><button class="t" data-t="c">Takvim</button><button class="t" data-t="x">Deneme</button><button class="t" data-t="o">Çıktı</button></nav>
 <div id="v"></div>
 <p class="m">Veri: ÜniRehberi "AYT'de en çok çıkan konular" ve "TYT en çok çıkan konular" tabloları (son 4 sınav: 2023–2026 gösteriliyor). AYT'de yalnızca sayısal dersler var. Kaynaktaki küçük tutarsızlıklar (bazı yıllarda satır toplamı) aynen aktarıldı. 2023'te Limit–Türev–İntegral satırı kaynakta boş; o yıl kapsam dışı bırakılmış olabilir. "Çıkmadı", "önemsiz" demek değildir.</p>
 </main>
-<!-- Tasarımcı İmzası -->
-<div class="site-signature">
-  Designed by <strong>Emir Turan Matur</strong>
-</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script>
 const D=[
 ['tt','TYT Türkçe','Ses Bilgisi|01000;Dil Bilgisi|32033;Noktalama İşaretleri|22222;Yazım Kuralları|22222;Anlatım Bozukluğu|00000;Paragraf|qqqqr;Cümlede Anlam|34533;Sözcükte Anlam|43543'],
@@ -191,7 +178,11 @@ const ord=a=>SRT?[...a].sort((p,q)=>q.tot-p.tot||q.yr-p.yr):a;
 const yp=t=>t.v.map((n,i)=>String(Y[i]).slice(2)+'/'+n).join(' ');
 const mt=t=>`<div class="y">${t.v.map((n,i)=>`<span class="yy${n?'':' z'}">${String(Y[i]).slice(2)}/<b>${n}</b></span>`).join('')}<span class="tt">Toplam <b>${t.tot}</b></span>${ds(t.id).length?`<span class="tt">📅 ${rng(ds(t.id))}${du(t.id)>1?` · ${ds(t.id).length}/${du(t.id)} gün`:''}</span>`:''}${rpChip(t)}</div>`;
 const row=t=>`<div class="r"><div class="n"><b>${nm(t)}${tg(t)}</b><button class="sb" data-pool="${t.id}">${inE(t)?'★ Listemde':"☆ Listeme ekle"}</button></div>${mt(t)}<button class="s s${g(t)}" data-i="${t.id}">${ST[g(t)]}</button><select data-i="${t.id}">${WK.map((x,i)=>`<option value="${i}"${w(t)==i?' selected':''}>${x}</option>`).join('')}</select>${rs(t)}</div>`;
-function save(){try{localStorage.setItem(LK,JSON.stringify(S))}catch(e){}
+let LSOK=true,dtm=0;
+function stamp(){S.ts=Date.now();try{if(XD&&(XD.n||Object.keys(XD.s).length||Object.keys(XD.w).length||XD.un.length||XD.ai))S.xd=XD;else delete S.xd}catch(e){}
+try{localStorage.setItem(LK,JSON.stringify(S));LSOK=true}catch(e){LSOK=false}}
+const saveD=()=>{clearTimeout(dtm);dtm=setTimeout(stamp,400)};
+function save(){stamp();
 clearTimeout(tmr);tmr=setTimeout(()=>{if(ref)ref.set({json:JSON.stringify(S)}).catch(()=>{})},700)}
 function vE(){return `<div class="c"><button class="a${EV=='k'?' on':''}" data-ev="k">Konular</button><button class="a${EV=='b'?' on':''}" data-ev="b">Kitaplar</button></div>`+(EV=='b'?vB():vE0())}
 function vE0(){const all=T.filter(t=>g(t)>=2).length,wc=cov(T);
@@ -298,8 +289,8 @@ else if(t=='ad')auto()}
 rr()}
 const esc=x=>String(x).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
 const LTN={g:'Hazır',y:'Tekrar lazım',r:'Eksik'};
-const lv=t=>(S.rd&&S.rd[t.id])||(g(t)>=4?'g':g(t)>=2?'y':'r');
-const tg=t=>{const c=lv(t),ok=g(t)>=2;return `<button class="lt ${c}" data-light="${t.id}" title="${LTN[c]}${S.rd&&S.rd[t.id]?' (elle seçildi)':' (otomatik)'} · değiştirmek için dokun"></button><span class="bn">${LTN[c]}</span><span class="bd ${ok?'ok':'ac'}">${ok?'Tamamlandı':'Aktif'}</span>${tstP(t)}`};
+const lv=t=>(S.rd&&S.rd[t.id])||(WK2[t.id]&&g(t)>=4?'y':g(t)>=4?'g':g(t)>=2?'y':'r');
+const tg=t=>{const c=lv(t),ok=g(t)>=2;return `<button class="lt ${c}" data-light="${t.id}" title="${LTN[c]}${S.rd&&S.rd[t.id]?' (elle seçildi)':' (otomatik)'} · değiştirmek için dokun"></button><span class="bn">${LTN[c]}</span><span class="bd ${ok?'ok':'ac'}">${ok?'Tamamlandı':'Aktif'}</span>${tstP(t)}${wkB(t)}`};
 const rsT=t=>((S.rs&&S.rs[t.id])||[]).filter(r=>r.n||r.t).map(r=>`${esc(r.n||'Kaynak')} ${r.s||0}/${r.t||0}`).join('; ')||'—';
 const rs=t=>`<div class="rs">${((S.rs&&S.rs[t.id])||[]).map((r,i)=>`<div class="ri"><input class="rn" list="bl" data-r="${t.id}|${i}|n" value="${esc(r.n||'')}" placeholder="Kitap / kaynak adı (örn. 3D AYT Matematik)"><span class="rt"><input type="number" min="0" inputmode="numeric" data-r="${t.id}|${i}|s" value="${r.s||0}"> / <input type="number" min="0" inputmode="numeric" data-r="${t.id}|${i}|t" value="${r.t||0}"> test</span> <button class="a sm" data-rs="${t.id}|${i}|p">＋1</button><button class="a sm" data-rs="${t.id}|${i}|x">✕</button>${bar(Math.min(100,pc(r.s||0,r.t||0)))}</div>`).join('')}<button class="a sm" data-rs="${t.id}|0|add">＋ Kaynak ekle</button></div>`;
 let EV='k';
@@ -335,25 +326,102 @@ const rpDay=d=>{const o=[];T.forEach(t=>((S.rp&&S.rp[t.id])||[]).forEach((r,k)=>
 const rpRow=(x,td)=>{const late=!x.x&&x.d<td;return `<div class="rr${x.x?' dn':late?' late':''}"><span>${nm(x.t)}</span><span class="rd1">${RO[x.k]}. gün tekrarı · ${dn(x.d)}${late?` · ${td-x.d} gün gecikti`:''}${x.x?' · ✓ yapıldı':''}</span><span class="rb1">${x.x?'':`<button class="a sm" data-rp="ok|${x.t.id}|${x.k}">✓ Tekrar ettim</button><button class="a sm" data-rp="sn|${x.t.id}|${x.k}">+1 gün</button>`}<label class="bdt">Bitiş <input type="date" data-cd="${x.t.id}" value="${dstr((S.cd||{})[x.t.id]||x.d-RO[x.k])}"></label></span></div>`};
 const rpRows=d=>{const R=rpDay(d);return R.length?`<p class="m rh">↻ Bu gün tekrar edilecekler</p>${R.map(x=>rpRow(x,tdx())).join('')}`:''};
 function rpPanel(){const td=tdx(),all=rpAll(),dow=(dt(td).getDay()+6)%7,we=td+(6-dow),due=all.filter(x=>x.d<=td),wk=all.filter(x=>x.d>td&&x.d<=we),far=all.filter(x=>x.d>we).length;
-return `<details class="rp ${due.length?'hot':wk.length?'warm':''}" data-k="rp"${OPEN.has('rp')?' open':''}><summary>🔁 Tekrar günleri · Bugün <b>${due.length}</b> · Bu hafta <b>${wk.length}</b></summary>${due.length?`<p class="m rh">Bugün tekrar edilecekler (gecikenler dahil)</p>${due.map(x=>rpRow(x,td)).join('')}`:''}${wk.length?`<p class="m rh">Bu hafta (${dn(td+1)} – ${dn(we)})</p>${wk.map(x=>rpRow(x,td)).join('')}`:''}${!due.length&&!wk.length?'<p class="m">Bugün ve bu hafta için tekrar yok. Bir konuyu "Soru çözüldü" ve üstü yaptığında 7., 30. ve 60. gün tekrarları otomatik planlanır.</p>':''}<p class="m">Daha ileri tarihli planlı tekrar: ${far}</p></details>`}
+return `<details class="rp ${due.length?'hot':(wk.length||WKL.length)?'warm':''}" data-k="rp"${OPEN.has('rp')?' open':''}><summary>🔁 Tekrar günleri · Bugün <b>${due.length}</b> · Bu hafta <b>${wk.length}</b> · Eksik <b>${Math.min(10,WKL.length)}</b></summary>${due.length?`<p class="m rh">Bugün tekrar edilecekler (gecikenler dahil)</p>${due.map(x=>rpRow(x,td)).join('')}`:''}${wk.length?`<p class="m rh">Bu hafta (${dn(td+1)} – ${dn(we)})</p>${wk.map(x=>rpRow(x,td)).join('')}`:''}${!due.length&&!wk.length?'<p class="m">Bugün ve bu hafta için tekrar yok. Bir konuyu "Soru çözüldü" ve üstü yaptığında 7., 30. ve 60. gün tekrarları otomatik planlanır.</p>':''}${WKL.length?`<p class="m rh">⚠ Denemede eksik çıkanlar (Tekrar lazım)</p>${WKL.slice(0,5).map(x=>`<div class="rr late"><span>${nm(x.t)}</span><span class="rd1">${x.w} yanlış · ${x.n} denemede</span><span class="rb1"><button class="a sm" data-xa="ack|${x.id}">✓ Tekrar ettim</button></span></div>`).join('')}`:''}<p class="m">Daha ileri tarihli planlı tekrar: ${far}</p></details>`}
 const rpChip=t=>{const a=(S.rp&&S.rp[t.id])||[];if(!a.length)return'';const td=tdx();return `<span class="tt rpc">↻ ${a.map(r=>`<span class="${r.x?'ok':r.d<=td?'due':''}">${r.x?'✓ ':''}${sd2(r.d)}</span>`).join(' · ')}</span>`};
 const rpTxt=t=>{const a=(S.rp&&S.rp[t.id])||[];return a.length?a.map(r=>(r.x?'✓ ':'')+sd2(r.d)).join(' · '):'—'};
 const rl=x=>`<div class="tl rt2"><i class="bx">${x.x?'✓':''}</i><span class="cp rcp">↻</span><span>Tekrar: ${x.t.n} (${RO[x.k]}. gün)</span></div>`;
+OPEN.add('xf');
+const iso2n=v=>{const q=String(v).split('-').map(Number);return Math.round((new Date(q[0],q[1]-1,q[2])-B0)/864e5)};
+const fmt=n=>(Math.round(n*100)/100).toFixed(2).replace(/0+$/,'').replace(/\.$/,'').replace('.',',');
+const net=(d,y)=>(d||0)-(y||0)/4;
+const EXS={TYT:[['tur','Türkçe',40,['tt']],['mat','Matematik',40,['tm','tg']],['fiz','Fizik',7,['tf']],['kim','Kimya',7,['tk']],['biy','Biyoloji',6,['tb']],['tar','Tarih',5,['th']],['cog','Coğrafya',5,['tc']],['fel','Felsefe',5,['tp']],['din','Din Kültürü',5,['td']]],AYT:[['mat','Matematik',40,['am','ag']],['fiz','Fizik',14,['af']],['kim','Kimya',13,['ak']],['biy','Biyoloji',13,['ab']]]};
+const xd0=()=>({n:'',d:dstr(tdx()),t:'TYT',s:{},w:{},f:'',un:[],ai:null});
+let XD=(S.xd&&S.xd.t&&EXS[S.xd.t])?Object.assign(xd0(),S.xd):xd0(),XF=null,XG='tt',XM='',CH=null,WK2={},WKL=[];
+const etot=e=>Object.keys(e.s||{}).reduce((a,k)=>a+net(e.s[k].d,e.s[k].y),0),grp=ty=>[...new Set(EXS[ty].flatMap(x=>x[3]))];
+const wkB=t=>WK2[t.id]?`<span class="bd wkb" title="Denemede ${WK2[t.id].w} yanlış">⚠ Denemede eksik</span>`:'';
+function wkCalc(){const ex=(S.ex||[]).slice().sort((a,b)=>a.d<b.d?1:a.d>b.d?-1:0),acc={},wa=S.wa||{};
+ex.forEach((e,i)=>{const dw=Math.pow(.7,i),en=iso2n(e.d);Object.keys(e.w||{}).forEach(id=>{if(wa[id]!=null&&en<=wa[id])return;if(!byId(id))return;const a=acc[id]=acc[id]||{w:0,n:0,sc:0};a.w+=e.w[id];a.n++;a.sc+=e.w[id]*dw})});
+WKL=Object.keys(acc).map(id=>{const t=byId(id),a=acc[id],f=Math.sqrt(1+t.tot);return{id,t,w:a.w,n:a.n,f,sc:a.sc*f}}).sort((x,y)=>y.sc-x.sc);WK2={};WKL.slice(0,10).forEach(x=>{WK2[x.id]=x})}
+function svgChart(labs,A,B,hd){const W=320,H=180,P=28,all=[...A.data,...B.data,hd.TYT||0,hd.AYT||0].filter(v=>v!=null),mx=Math.max(10,...all)*1.1,X=i=>P+(labs.length>1?i*(W-P-8)/(labs.length-1):(W-P)/2),Y=v=>H-P-(v/mx)*(H-P-8);
+const ln=(d,c)=>{const pts=d.map((v,i)=>v==null?null:[X(i),Y(v)]).filter(Boolean);return pts.length?`<polyline fill="none" stroke="${c}" stroke-width="2" points="${pts.map(q=>q.join(',')).join(' ')}"/>${pts.map(q=>`<circle cx="${q[0]}" cy="${q[1]}" r="3" fill="${c}"/>`).join('')}`:''};
+return `<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-height:250px;color:var(--mut)"><line x1="${P}" y1="${H-P}" x2="${W-4}" y2="${H-P}" stroke="currentColor" opacity=".35"/>${ln(A.data,'#2563eb')}${ln(B.data,'#ea580c')}${labs.map((l,i)=>`<text x="${X(i)}" y="${H-10}" font-size="8" text-anchor="middle" fill="currentColor">${l}</text>`).join('')}</svg>`}
+function drawChart(){const cv=$('ch');if(!cv)return;const ex=(S.ex||[]).slice().sort((a,b)=>a.d<b.d?-1:a.d>b.d?1:0),labs=[...new Set(ex.map(e=>e.d))],lb=labs.map(d=>sd2(iso2n(d))),hd=S.hd||{};
+const ser=ty=>{const nm=[];return{nm,data:labs.map(d=>{const e=ex.find(x=>x.d==d&&x.t==ty);nm.push(e?e.n:'');return e?Math.round(etot(e)*100)/100:null})}},A=ser('TYT'),B=ser('AYT');
+if(!ex.length)return;if(!window.Chart){cv.parentNode.innerHTML=svgChart(lb,A,B,hd);return}
+const cs=getComputedStyle(document.documentElement),mut=cs.getPropertyValue('--mut').trim()||'#667',gl=cs.getPropertyValue('--line').trim()||'#ddd';
+const ds=[{label:'TYT net',data:A.data,nm:A.nm,borderColor:'#2563eb',backgroundColor:'#2563eb',tension:.3,spanGaps:true,pointRadius:4,borderWidth:2.5},{label:'AYT net',data:B.data,nm:B.nm,borderColor:'#ea580c',backgroundColor:'#ea580c',tension:.3,spanGaps:true,pointRadius:4,borderWidth:2.5}];
+if(hd.TYT)ds.push({label:'TYT hedef',data:labs.map(()=>hd.TYT),borderColor:'#2563eb',borderDash:[6,4],pointRadius:0,borderWidth:1.5});
+if(hd.AYT)ds.push({label:'AYT hedef',data:labs.map(()=>hd.AYT),borderColor:'#ea580c',borderDash:[6,4],pointRadius:0,borderWidth:1.5});
+try{if(CH)CH.destroy();CH=new Chart(cv,{type:'line',data:{labels:lb,datasets:ds},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'nearest',intersect:false},plugins:{legend:{labels:{color:mut}},tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${fmt(c.parsed.y)}${c.dataset.nm&&c.dataset.nm[c.dataIndex]?' · '+c.dataset.nm[c.dataIndex]:''}`}}},scales:{x:{ticks:{color:mut},grid:{color:gl}},y:{beginAtZero:true,ticks:{color:mut},grid:{color:gl}}}}})}catch(e){cv.parentNode.innerHTML=svgChart(lb,A,B,hd)}}
+const acil=()=>{const L=WKL.slice(0,10);return `<div class="c"><b>⚠ Acil tekrar edilecek eksikler</b><p class="m">Puan = yanlış sayısı (son denemeler daha ağır) × konu ağırlığı (son 4 yıldaki soru sayısına göre). İlk 10 konu ana programda "Tekrar lazım" olarak işaretlenir.</p>${L.length?L.map(x=>`<div class="rr late"><span>${nm(x.t)}${tg(x.t)}</span><span class="rd1">${x.w} yanlış · ${x.n} denemede · ağırlık ×${fmt(x.f)} · puan ${fmt(x.sc)}</span>${bar(Math.round(100*x.sc/L[0].sc))}<span class="rb1"><button class="a sm" data-xa="ack|${x.id}">✓ Tekrar ettim</button>${inE(x.t)?'':`<button class="a sm" data-xa="lst|${x.id}">＋ Konu listeme ekle</button>`}</span></div>`).join(''):'<p class="m">Henüz yanlış konu girilmiş deneme yok.</p>'}</div>`};
+function vX(){const ex=(S.ex||[]).slice().sort((a,b)=>a.d<b.d?1:a.d>b.d?-1:0),hd=S.hd||{},sub=EXS[XD.t],gs=grp(XD.t);if(!gs.includes(XG))XG=gs[0];
+const tp=T.filter(t=>t.k==XG).sort((a,b)=>b.tot-a.tot),xt=sub.reduce((a,x)=>{const v=XD.s[x[0]]||{};return a+net(v.d,v.y)},0);
+let h=`<div class="c"><b>📈 Net gelişimi</b>${ex.length?'<div class="cw"><canvas id="ch"></canvas></div>':'<p class="m">Grafik için en az bir deneme kaydet.</p>'}<div class="ad"><label class="bdt">Hedef TYT <input type="number" min="0" max="120" data-x="h1" value="${hd.TYT||''}"></label><label class="bdt">Hedef AYT <input type="number" min="0" max="80" data-x="h2" value="${hd.AYT||''}"></label></div></div>`+acil();
+h+=`<details class="c xf" data-k="xf"${OPEN.has('xf')?' open':''}><summary>＋ Yeni deneme ekle</summary><div class="ad"><input data-x="n" placeholder="Deneme adı (örn. 3D TYT Deneme 1)" maxlength="50" value="${esc(XD.n)}"></div><div class="ad"><input type="date" data-x="d" value="${XD.d}"><select data-x="t"><option value="TYT"${XD.t=='TYT'?' selected':''}>TYT</option><option value="AYT"${XD.t=='AYT'?' selected':''}>AYT (Sayısal)</option></select></div>
+<div class="xr xh"><span>Ders</span><span>Doğru</span><span>Yanlış</span><span>Net</span></div>${sub.map(([k,n,m])=>{const v=XD.s[k]||{};return `<div class="xr"><span>${n} <small>/${m}</small></span><input type="number" min="0" max="${m}" inputmode="numeric" data-xs="${k}|d" value="${v.d??''}"><input type="number" min="0" max="${m}" inputmode="numeric" data-xs="${k}|y" value="${v.y??''}"><b id="nt_${k}" class="${(v.d||0)+(v.y||0)>m?'bad':''}">${fmt(net(v.d,v.y))}</b></div>`}).join('')}
+<p class="m">Toplam net: <b id="xtot">${fmt(xt)}</b> / ${XD.t=='TYT'?120:80} (net = doğru − yanlış/4)</p>
+<div class="xu"><b>Karne (görsel / PDF)</b><br><input type="file" data-x="f" accept="image/*,application/pdf"> <span class="m">${XF?esc(XF.name):XD.f?esc(XD.f)+' (analiz için dosyayı yeniden seç)':'Dosya seçilmedi'}</span><br><button class="a" data-xa="an">🤖 Karne Analiz Et</button><p class="m" id="xmsg">${esc(XM||"Analiz, karneyi Claude'a gönderir (izin ister); okunan değerleri kaydetmeden önce kontrol et. Dosyanın kendisi saklanmaz.")}</p>${XD.un.length?`<p class="m">Eşleşmeyen konular: ${esc(XD.un.join(', '))}</p>`:''}</div>
+<div class="xw"><b>Yanlış yapılan konular</b><div class="ad"><select data-x="g">${gs.map(k=>`<option value="${k}"${k==XG?' selected':''}>${DNM[k]}</option>`).join('')}</select></div><div class="ad"><select id="xt">${tp.map(t=>`<option value="${t.id}">${t.n} · ${t.tot} soru</option>`).join('')}</select><input id="xc" type="number" min="1" value="1" style="width:56px"><button class="a" data-xa="addw">＋ Ekle</button></div>${Object.keys(XD.w).length?`<div>${Object.keys(XD.w).map(id=>`<span class="chip">${nm(byId(id))} ×${XD.w[id]}<button class="a sm" data-xa="rmw|${id}">✕</button></span>`).join('')}</div>`:''}</div>
+<button class="a on" data-xa="save">✔ Denemeyi kaydet</button><p class="m" id="xs"></p></details>`;
+return h+`<div class="c"><b>Kayıtlı denemeler (${ex.length})</b>${ex.map(e=>`<div class="ex"><b>${esc(e.n)}</b> <small>${dn(iso2n(e.d))} · ${e.t}</small><div class="m">Net <b>${fmt(etot(e))}</b> · ${EXS[e.t].filter(x=>e.s[x[0]]).map(x=>`${x[1]} ${fmt(net(e.s[x[0]].d,e.s[x[0]].y))}`).join(' · ')}</div>${Object.keys(e.w||{}).length?`<div class="m">Yanlış konular: ${Object.keys(e.w).filter(id=>byId(id)).map(id=>`${byId(id).n} ×${e.w[id]}`).join(', ')}</div>`:''}${e.f?`<div class="m">Karne: ${esc(e.f)}</div>`:''}${e.ai?'<div class="m">🤖 Değerler karneden Claude ile okundu</div>':''}${e.un&&e.un.length?`<div class="m">Eşleşmeyen konular: ${esc(e.un.join(', '))}</div>`:''}<button class="a sm" data-xa="del|${e.id}">Sil</button></div>`).join('')||'<p class="m">Henüz deneme yok.</p>'}</div>`+bkCard()}
+const bkCard=()=>`<div class="c"><b>💾 Veri saklama</b><p class="m">Denemelerin, netlerin ve analiz sonuçların bu tarayıcıda (localStorage) saklanır; sayfayı yenilesen de silinmez. Tarayıcı verilerini temizlersen silinir, bu yüzden ara sıra yedek al.${LSOK?'':' ⚠ Bu tarayıcıda depolama kapalı görünüyor; veriler kaybolabilir.'}</p><button class="a" data-xa="bk">Yedeği hazırla</button><button class="a" data-xa="rs">Yedekten yükle</button><textarea id="bkt" rows="4" placeholder="Yedek burada görünür; geri yüklemek için buraya yapıştır"></textarea><p class="m" id="bkm"></p></div>`;
+function xClick(b){const p=b.dataset.xa.split('|'),a=p[0];
+if(a=='an'){analyze();return}
+if(a=='addw'){const id=$('xt').value,c=Math.max(1,parseInt($('xc').value)||1);if(id)XD.w[id]=(XD.w[id]||0)+c}
+else if(a=='rmw')delete XD.w[p[1]];
+else if(a=='ack'){(S.wa=S.wa||{})[p[1]]=tdx()}
+else if(a=='lst'){if(!ek().includes(p[1]))ek().push(p[1])}
+else if(a=='bk'){$('bkt').value=JSON.stringify(S);const m=$('bkm');if(m)m.textContent='Yedek hazır: metni kopyalayıp güvenli bir yere kaydet.';return}
+else if(a=='rs'){let x=null;try{x=JSON.parse($('bkt').value)}catch(e){}const m=$('bkm');if(!x||!x.st||!x.wk){if(m)m.textContent='Geçerli bir yedek bulunamadı.';return}
+if(cd!='rs'){cd='rs';b.textContent='Mevcut veriler silinip yedek yüklenecek. Emin misin? Tekrar dokun';setTimeout(()=>{cd=0},4000);return}cd=0;S=x;XD=(S.xd&&S.xd.t&&EXS[S.xd.t])?Object.assign(xd0(),S.xd):xd0();XF=null}
+else if(a=='del'){if(cd!=b.dataset.xa){cd=b.dataset.xa;b.textContent='Emin misin? Tekrar dokun';setTimeout(()=>{cd=0},3000);return}cd=0;S.ex=(S.ex||[]).filter(e=>e.id!=p[1])}
+else if(a=='save'){const ks=Object.keys(XD.s).filter(k=>XD.s[k].d||XD.s[k].y);if(!ks.length){$('xs').textContent='En az bir dersin doğru/yanlış sayısını gir.';return}
+(S.ex=S.ex||[]).push({id:'e'+Date.now(),n:XD.n.trim()||'Deneme '+(S.ex.length+1),d:XD.d,t:XD.t,s:Object.fromEntries(ks.map(k=>[k,{d:XD.s[k].d||0,y:XD.s[k].y||0}])),w:{...XD.w},f:XD.f,ai:XD.ai||null,un:[...XD.un],at:Date.now()});XD=xd0();XF=null;XM=''}
+rr()}
+const norm=x=>String(x||'').toLocaleLowerCase('tr').replace(/[^a-zçğıöşü0-9 ]/g,' ').split(/\s+/).filter(w=>w.length>2);
+const sim=(a,b)=>{const A=norm(a),B=norm(b),wm=(p,q)=>p.startsWith(q.slice(0,Math.max(4,q.length-2)))||q.startsWith(p.slice(0,Math.max(4,p.length-2)));return A.length&&B.length?A.filter(p=>B.some(q=>wm(p,q))).length/Math.max(A.length,B.length):0};
+function applyAI(r){if(!r)return;XD.ai=r;if(r.ad)XD.n=String(r.ad).slice(0,50);if(/^\d{4}-\d{2}-\d{2}$/.test(r.tarih||''))XD.d=r.tarih;
+if(r.tur=='TYT'||r.tur=='AYT')XD.t=r.tur;XD.s={};XD.un=[];XD.w={};const sub=EXS[XD.t];
+Object.keys(r.dersler||{}).forEach(k=>{const x=sub.find(z=>z[0]==k);if(!x)return;const v=r.dersler[k]||{};XD.s[k]={d:Math.min(x[2],Math.max(0,parseInt(v.d)||0)),y:Math.min(x[2],Math.max(0,parseInt(v.y)||0))}});
+(r.yanlis_konular||[]).forEach(w=>{const x=sub.find(z=>z[0]==w.ders),c=Math.max(1,parseInt(w.yanlis)||1);if(!x){XD.un.push(`${w.konu} ×${c}`);return}
+let best=null,bs=0;T.filter(t=>x[3].includes(t.k)).forEach(t=>{const q=Math.max(sim(w.konu,t.n),sim(t.n,w.konu));if(q>bs){bs=q;best=t}});
+if(best&&bs>=.5)XD.w[best.id]=(XD.w[best.id]||0)+c;else XD.un.push(`${w.konu} ×${c}`)})}
+const xm=t=>{XM=t;const m=$('xmsg');if(m)m.textContent=t};
+async function analyze(){
+if(!XF){xm('Önce bir karne dosyası seç.');return}
+let sm=null;try{sm=window.claude&&await window.claude.use('sample')}catch(e){}
+if(!sm){xm('Yapay zekâ analizi yalnızca Claude içinde açılan, giriş yapılmış sayfada çalışır. Değerleri elle girebilirsin.');return}
+let lim=null;try{lim=await sm.limits()}catch(e){}
+if(!lim||!lim.images||!lim.images.mediaTypes.includes(XF.type)){xm("Bu dosya türü Claude'a gönderilemiyor. Karneyi JPG/PNG görsel olarak yükle (PDF ise ekran görüntüsünü al).");return}
+xm('Claude karneyi okuyor… (biraz sürebilir)');
+const keys=EXS[XD.t].map(x=>x[0]+'='+x[1]).join(', ');
+const prompt=`Ekteki görsel bir YKS deneme sınavı karnesi. Karneden okuyabildiğin bilgileri SADECE şu JSON şemasıyla döndür, başka metin yazma:
+{"ad":string|null,"tarih":"YYYY-MM-DD"|null,"tur":"TYT"|"AYT"|null,"dersler":{"<anahtar>":{"d":doğru sayısı,"y":yanlış sayısı}},"yanlis_konular":[{"ders":"<anahtar>","konu":string,"yanlis":sayı}]}
+Ders anahtarları: TYT için tur=Türkçe, mat=Matematik, fiz=Fizik, kim=Kimya, biy=Biyoloji, tar=Tarih, cog=Coğrafya, fel=Felsefe, din=Din Kültürü; AYT sayısal için mat, fiz, kim, biy. Şu an seçili tür: ${XD.t} (${keys}).
+Kurallar: Görselde olmayan hiçbir şeyi uydurma; bilinmeyenler için null, konu analizi yoksa boş dizi kullan. Net hesaplama, yalnızca doğru ve yanlış sayılarını yaz.`;
+try{applyAI(await sm.json(prompt,{images:[XF],cache:false}));XM='Analiz bitti: değerleri kontrol edip düzelt, sonra kaydet.';rr()}catch(e){xm('Analiz yapılamadı ('+(e&&e.code||'hata')+'). Değerleri elle girebilirsin.')}}
+$('v').addEventListener('input',e=>{const s=e.target;if(s.dataset.x=='n'){XD.n=s.value;saveD();return}
+if(s.dataset.xs){saveD();const[k,f]=s.dataset.xs.split('|'),v=XD.s[k]=XD.s[k]||{};v[f]=s.value===''?undefined:Math.max(0,parseInt(s.value)||0);const m=EXS[XD.t].find(x=>x[0]==k)[2],el=$('nt_'+k);if(el){el.textContent=fmt(net(v.d,v.y));el.className=(v.d||0)+(v.y||0)>m?'bad':''}const t=$('xtot');if(t)t.textContent=fmt(EXS[XD.t].reduce((a,x)=>{const q=XD.s[x[0]]||{};return a+net(q.d,q.y)},0))}});
 function render(){document.body.classList.toggle('po',tab=='o');document.querySelectorAll('.t').forEach(b=>b.classList.toggle('on',b.dataset.t==tab));
-ensureRp();$('v').innerHTML=rpPanel()+(tab=='e'?vE():tab=='p'?vP():tab=='c'?vC():vO())+dl()}
+ensureRp();wkCalc();$('v').innerHTML=rpPanel()+(tab=='e'?vE():tab=='p'?vP():tab=='c'?vC():tab=='x'?vX():vO())+dl();if(CH&&tab!='x'){CH.destroy();CH=null}if(tab=='x')drawChart()}
 function rr(){save();const y=scrollY;render();scrollTo(0,y)}
 function fill(){for(let h=2;h<6;h++){if(T.some(t=>w(t)==h))continue;
 for(const k in Q)T.filter(t=>t.k==k&&g(t)<2&&!w(t)&&t.tot).sort((p,q)=>q.tot-p.tot||q.yr-p.yr).slice(0,Q[k]).forEach(t=>S.wk[t.id]=h)}rr()}
 $('lg').innerHTML=ST.map((x,i)=>`<span class="s s${i} l">${x}</span>`).join('');
 $('v').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
-if(b.dataset.rp){const[a,id,k]=b.dataset.rp.split('|'),r=S.rp[id][+k];if(a=='ok')r.x=tdx();else r.d=Math.max(r.d,tdx())+1;rr();return}if(b.dataset.ev){EV=b.dataset.ev;rr();return}if(b.dataset.bk){bkClick(b);return}if(b.dataset.rs){const[id,i,a]=b.dataset.rs.split('|'),o=S.rs=S.rs||{},l=o[id]=o[id]||[];
+if(b.dataset.xa){xClick(b);return}if(b.dataset.rp){const[a,id,k]=b.dataset.rp.split('|'),r=S.rp[id][+k];if(a=='ok')r.x=tdx();else r.d=Math.max(r.d,tdx())+1;rr();return}if(b.dataset.ev){EV=b.dataset.ev;rr();return}if(b.dataset.bk){bkClick(b);return}if(b.dataset.rs){const[id,i,a]=b.dataset.rs.split('|'),o=S.rs=S.rs||{},l=o[id]=o[id]||[];
 if(a=='add')l.push({n:'',t:0,s:0});else if(a=='x')l.splice(+i,1);else if(a=='p'){const r=l[+i];r.s=(r.s||0)+1;if(r.t&&r.s>r.t)r.s=r.t}
 rr();return}
 if(b.dataset.light){const id=b.dataset.light,o=S.rd=S.rd||{},k=['g','y','r'],i=o[id]?k.indexOf(o[id]):-1;if(i==2)delete o[id];else o[id]=k[i+1];rr();return}
 if(b.dataset.pool){const a=ek(),i=a.indexOf(b.dataset.pool);if(i<0)a.push(b.dataset.pool);else{a.splice(i,1);delete dyo()[b.dataset.pool]}rr();return}if(b.dataset.cal){calClick(b);return}if(b.dataset.i){S.st[b.dataset.i]=(g({id:b.dataset.i})+1)%5;rr();return}
 if(b.id=='fill'){fill();return}if(b.id=='srt'){SRT=!SRT;rr();return}if(b.id=='hid'){HID=!HID;rr();return}
 if(b.id=='clr'){if(!ask){ask=1;b.textContent='Emin misin? Tekrar dokun';setTimeout(()=>{ask=0},3000);return}S.wk={};S.dy={};ask=0;rr()}});
-$('v').addEventListener('change',e=>{const s=e.target;if(s.id=='pdl'){PD=s.value;rr();return}if(s.dataset.cd){const id=s.dataset.cd,v=s.value;if(!v)return;const q=v.split('-').map(Number),n=Math.round((new Date(q[0],q[1]-1,q[2])-B0)/864e5),old=(S.rp&&S.rp[id])||[];(S.cd=S.cd||{})[id]=n;S.rp=S.rp||{};S.rp[id]=RO.map((o,i)=>({d:n+o,x:(old[i]&&old[i].x)||0}));rr();return}
+$('v').addEventListener('change',e=>{const s=e.target;if(s.id=='pdl'){PD=s.value;rr();return}if(s.dataset.x){const r=s.dataset.x;
+if(r=='d')XD.d=s.value;else if(r=='t'){XD.t=s.value;XD.s={};XD.w={};XD.un=[];XG=grp(XD.t)[0]}else if(r=='g')XG=s.value;
+else if(r=='f'){XF=(s.files&&s.files[0])||null;XD.f=XF?XF.name:''}
+else if(r=='h1'||r=='h2'){(S.hd=S.hd||{})[r=='h1'?'TYT':'AYT']=Math.max(0,parseFloat(s.value)||0)||undefined}
+else return;rr();return}
+if(s.dataset.cd){const id=s.dataset.cd,v=s.value;if(!v)return;const q=v.split('-').map(Number),n=Math.round((new Date(q[0],q[1]-1,q[2])-B0)/864e5),old=(S.rp&&S.rp[id])||[];(S.cd=S.cd||{})[id]=n;S.rp=S.rp||{};S.rp[id]=RO.map((o,i)=>({d:n+o,x:(old[i]&&old[i].x)||0}));rr();return}
 if(s.dataset.bt){const[n,id]=s.dataset.bt.split('|'),r=gent(id,n);r.t=Math.max(0,parseInt(s.value)||0);if(r.t&&r.s>r.t)r.s=r.t;save();setTimeout(rr,350);return}
 if(s.dataset.bren){const o=s.dataset.bren,nn=s.value.trim().replace(/\|/g,'/').slice(0,40);if(nn&&nn!=o&&!books().some(x=>x.n==nn)){(S.bk||[]).forEach(b=>{if(b.n==o)b.n=nn});Object.keys(S.rs||{}).forEach(id=>S.rs[id].forEach(r=>{if(r.n==o)r.n=nn}));if(OPEN.delete('b:'+o))OPEN.add('b:'+nn)}rr();return}
 if(s.dataset.r){const[id,i,f]=s.dataset.r.split('|'),o=S.rs=S.rs||{},a=o[id]=o[id]||[],r=a[i]=a[i]||{};r[f]=f=='n'?s.value.trim().replace(/\|/g,'/').slice(0,40):Math.max(0,parseInt(s.value)||0);
@@ -367,10 +435,37 @@ if(!window.claude||!claude.use)return;
 const [db,u]=await Promise.all([claude.use('db'),claude.use('user')]);
 if(!db||!u)return;
 const id=await u.id();if(!id)return;
-const r=db.doc('data/users/'+id+'/yks2'),sn=await r.get();
-if(sn.exists){const x=JSON.parse((sn.data()||{}).json||'null');if(x&&x.st&&x.wk){S=x;try{localStorage.setItem(LK,JSON.stringify(S))}catch(e){}}}
-ref=r;if(!sn.exists)save();render();
+const r=db.doc('data/users/'+id+'/yks2'),sn=await r.get();let push=!sn.exists;
+if(sn.exists){const x=JSON.parse((sn.data()||{}).json||'null');if(x&&x.st&&x.wk){if((x.ts||0)>=(S.ts||0)){S=x;XD=(S.xd&&S.xd.t&&EXS[S.xd.t])?Object.assign(xd0(),S.xd):xd0();try{localStorage.setItem(LK,JSON.stringify(S))}catch(e){}}else push=true}}
+ref=r;if(push)save();render();
 }catch(e){}})();
 </script>
+
+<!-- Tasarımcı İmzası -->
+<div class="site-signature">
+  Designed by <strong>Emir Turan Matur</strong>
+</div>
+
+<style>
+  div.site-signature {
+    position: fixed !important;
+    bottom: 12px !important;
+    right: 16px !important;
+    z-index: 999999 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-size: 11px !important;
+    color: #ffffff !important;
+    background: rgba(20, 20, 25, 0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    padding: 6px 14px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+    pointer-events: none !important;
+    user-select: none !important;
+  }
+</style>
 </body>
 </html>
