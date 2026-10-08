@@ -178,9 +178,9 @@ const ord=a=>SRT?[...a].sort((p,q)=>q.tot-p.tot||q.yr-p.yr):a;
 const yp=t=>t.v.map((n,i)=>String(Y[i]).slice(2)+'/'+n).join(' ');
 const mt=t=>`<div class="y">${t.v.map((n,i)=>`<span class="yy${n?'':' z'}">${String(Y[i]).slice(2)}/<b>${n}</b></span>`).join('')}<span class="tt">Toplam <b>${t.tot}</b></span>${ds(t.id).length?`<span class="tt">📅 ${rng(ds(t.id))}${du(t.id)>1?` · ${ds(t.id).length}/${du(t.id)} gün`:''}</span>`:''}${rpChip(t)}</div>`;
 const row=t=>`<div class="r"><div class="n"><b>${nm(t)}${tg(t)}</b><button class="sb" data-pool="${t.id}">${inE(t)?'★ Listemde':"☆ Listeme ekle"}</button></div>${mt(t)}<button class="s s${g(t)}" data-i="${t.id}">${ST[g(t)]}</button><select data-i="${t.id}">${WK.map((x,i)=>`<option value="${i}"${w(t)==i?' selected':''}>${x}</option>`).join('')}</select>${rs(t)}</div>`;
-let LSOK=true,dtm=0;
+let LSOK=true,dtm=0,LKEY=LK,UID='';
 function stamp(){S.ts=Date.now();try{if(XD&&(XD.n||Object.keys(XD.s).length||Object.keys(XD.w).length||XD.un.length||XD.ai))S.xd=XD;else delete S.xd}catch(e){}
-try{localStorage.setItem(LK,JSON.stringify(S));LSOK=true}catch(e){LSOK=false}}
+try{localStorage.setItem(LKEY,JSON.stringify(S));LSOK=true}catch(e){LSOK=false}}
 const saveD=()=>{clearTimeout(dtm);dtm=setTimeout(stamp,400)};
 function save(){stamp();
 clearTimeout(tmr);tmr=setTimeout(()=>{if(ref)ref.set({json:JSON.stringify(S)}).catch(()=>{})},700)}
@@ -373,7 +373,7 @@ else if(a=='ack'){(S.wa=S.wa||{})[p[1]]=tdx()}
 else if(a=='lst'){if(!ek().includes(p[1]))ek().push(p[1])}
 else if(a=='bk'){$('bkt').value=JSON.stringify(S);const m=$('bkm');if(m)m.textContent='Yedek hazır: metni kopyalayıp güvenli bir yere kaydet.';return}
 else if(a=='rs'){let x=null;try{x=JSON.parse($('bkt').value)}catch(e){}const m=$('bkm');if(!x||!x.st||!x.wk){if(m)m.textContent='Geçerli bir yedek bulunamadı.';return}
-if(cd!='rs'){cd='rs';b.textContent='Mevcut veriler silinip yedek yüklenecek. Emin misin? Tekrar dokun';setTimeout(()=>{cd=0},4000);return}cd=0;S=x;XD=(S.xd&&S.xd.t&&EXS[S.xd.t])?Object.assign(xd0(),S.xd):xd0();XF=null}
+if(cd!='rs'){cd='rs';b.textContent='Mevcut veriler silinip yedek yüklenecek. Emin misin? Tekrar dokun';setTimeout(()=>{cd=0},4000);return}cd=0;S=x;if(UID)S.uid=UID;else delete S.uid;XD=(S.xd&&S.xd.t&&EXS[S.xd.t])?Object.assign(xd0(),S.xd):xd0();XF=null}
 else if(a=='del'){if(cd!=b.dataset.xa){cd=b.dataset.xa;b.textContent='Emin misin? Tekrar dokun';setTimeout(()=>{cd=0},3000);return}cd=0;S.ex=(S.ex||[]).filter(e=>e.id!=p[1])}
 else if(a=='save'){const ks=Object.keys(XD.s).filter(k=>XD.s[k].d||XD.s[k].y);if(!ks.length){$('xs').textContent='En az bir dersin doğru/yanlış sayısını gir.';return}
 (S.ex=S.ex||[]).push({id:'e'+Date.now(),n:XD.n.trim()||'Deneme '+(S.ex.length+1),d:XD.d,t:XD.t,s:Object.fromEntries(ks.map(k=>[k,{d:XD.s[k].d||0,y:XD.s[k].y||0}])),w:{...XD.w},f:XD.f,ai:XD.ai||null,un:[...XD.un],at:Date.now()});XD=xd0();XF=null;XM=''}
@@ -434,18 +434,20 @@ render();
 if(!window.claude||!claude.use)return;
 const [db,u]=await Promise.all([claude.use('db'),claude.use('user')]);
 if(!db||!u)return;
-const id=await u.id();if(!id)return;
+const id=await u.id();if(!id)return;UID=id;
+if(S.uid&&S.uid!==id){LKEY=LK+':'+id;let o=null;try{o=JSON.parse(localStorage.getItem(LKEY)||'null')}catch(e){}S=(o&&o.st&&o.wk)?o:{st:{},wk:{}};XD=(S.xd&&S.xd.t&&EXS[S.xd.t])?Object.assign(xd0(),S.xd):xd0()}
+S.uid=id;
 const r=db.doc('data/users/'+id+'/yks2'),sn=await r.get();let push=!sn.exists;
-if(sn.exists){const x=JSON.parse((sn.data()||{}).json||'null');if(x&&x.st&&x.wk){if((x.ts||0)>=(S.ts||0)){S=x;XD=(S.xd&&S.xd.t&&EXS[S.xd.t])?Object.assign(xd0(),S.xd):xd0();try{localStorage.setItem(LK,JSON.stringify(S))}catch(e){}}else push=true}}
+if(sn.exists){const x=JSON.parse((sn.data()||{}).json||'null');if(x&&x.st&&x.wk){if((x.ts||0)>=(S.ts||0)){S=x;S.uid=id;XD=(S.xd&&S.xd.t&&EXS[S.xd.t])?Object.assign(xd0(),S.xd):xd0();try{localStorage.setItem(LKEY,JSON.stringify(S))}catch(e){}}else push=true}}
 ref=r;if(push)save();render();
 }catch(e){}})();
 </script>
-
+ 
 <!-- Tasarımcı İmzası -->
 <div class="site-signature">
   Designed by <strong>Emir Turan Matur</strong>
 </div>
-
+ 
 <style>
   div.site-signature {
     position: fixed !important;
@@ -469,3 +471,4 @@ ref=r;if(push)save();render();
 </style>
 </body>
 </html>
+ 
